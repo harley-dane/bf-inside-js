@@ -1,7 +1,7 @@
 'use strict';
 
 // --- declare callbacks ---
-
+console.log("!...start...!")
 const isGreaterThanFive = (x = 0) => {
   return x > 5;
 };
@@ -20,7 +20,18 @@ const isEven = (x = 0) => {
  * @param {Function} cb - What to check for.
  * @returns {string} "neither", "one" or "both"
  */
-const checkThem = () => {};
+const checkThem = (num1 = 0, num2 = 0, cb) => {
+  const check1 = cb(num1);
+  const check2 = cb(num2);
+
+  if (check1 && check2) {
+    return 'both';
+  } else if (check1 || check2) {
+    return 'one';
+  } else {
+    return 'neither';
+  }
+};
 
 // --- test your function ---
 
@@ -31,7 +42,7 @@ const check2 = checkThem(6, 5, isGreaterThanFive);
 console.assert(check2 === 'one', 'Test 2');
 
 const check3 = checkThem(1, 2, isGreaterThanFive);
-console.assert(check3 === 'both', 'Test 3');
+console.assert(check3 === 'neither', 'Test 3');
 
 const check4 = checkThem(1, 5, isEven);
 console.assert(check4 === 'neither', 'Test 4');
@@ -41,3 +52,5 @@ console.assert(check5 === 'one', 'Test 5');
 
 const check6 = checkThem(2, 4, isEven);
 console.assert(check6 === 'both', 'Test 6');
+
+console.log("|...end...|")
