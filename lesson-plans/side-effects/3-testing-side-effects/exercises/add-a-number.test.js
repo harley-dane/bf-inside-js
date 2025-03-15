@@ -14,14 +14,18 @@
  * @example
  * addANumber([-2, -1, 0, 1], 1); // [-1, 0, 1, 2]
  */
-const addANumber = () => {};
+const addANumber = (numbers = [], addMe = 0) => {
+  return numbers.map((number) => number + addMe);
+};
 
 describe('addANumber: adds a given number to each number in an array', () => {
   describe('the function adds to each entry:', () => {
     it('in a sorted array', () => {
       const actual = addANumber([-3, -2, -1, 0, 1, 2, 3], 1);
-      expect(actual).toEqual([-2, -1, 0, 1, 2, 3, 4]);
+      const expected = [-2, -1, 0, 1, 2, 3, 4];
+      expect(actual).toEqual(expected); // Compare the actual and expected arrays
     });
+
     it('in a backwards array', () => {
       const actual = addANumber([3, 2, 1, 0, -1, -2, -3], 2);
       expect(actual).toEqual([5, 4, 3, 2, 1, 0, -1]);
@@ -58,10 +62,17 @@ describe('addANumber: adds a given number to each number in an array', () => {
   });
   describe('there are no side-effects', () => {
     it('returns a new array', () => {
-      writeThisTest;
+      const input = [1, 2, 3];
+      const result = addANumber(input, 5);
+      expect(result).toEqual([6, 7, 8]); // Verify the returned array is as expected
+      expect(result).not.toBe(input); // Verify that a new array is returned (not the same reference)
     });
+
     it('does not modify the original array', () => {
-      writeThisTest;
+      const input = [1, 2, 3];
+      const copyOfInput = [...input]; // Create a copy of the original array
+      addANumber(input, 5); // Call the function
+      expect(input).toEqual(copyOfInput); // Verify the original array is unchanged
     });
   });
 });
