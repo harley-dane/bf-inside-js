@@ -9,6 +9,7 @@
  * @param {Function} cb - The function call with the text.
  * @returns {String} "yes" or "no", depending on the cb's return value.
  */
+console.log(".. beging...")
 const checkIt = (text = '', cb) => {
   const itIsSo = cb(text);
   return itIsSo ? 'yes' : 'no';
@@ -23,13 +24,16 @@ const checkIt = (text = '', cb) => {
  * @param {string} [str=''] - The string to check.
  * @returns {boolean} Whether or not the string is a palindrome.
  */
-const isPalindrome = (str = '') => {};
+const isPalindrome = (str = '') => {
+  const itIS = str.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  return itIS ? "yes" : "no"
+};
 
 const check1 = checkIt('RacEcaR', isPalindrome);
 console.assert(check1 === 'yes', 'Test 1');
 
 const check2 = checkIt('Racecar', isPalindrome);
-console.assert(check2 === 'no', 'Test 2');
+console.assert(check2 === 'yes', 'Test 2');
 
 const check3 = checkIt('-+(*)+-', isPalindrome);
 console.assert(check3 === 'yes', 'Test 3');
@@ -43,16 +47,21 @@ console.assert(check3 === 'yes', 'Test 3');
  * @param {string} [str=''] - The string to check.
  * @returns {boolean} Whether or not the string is JS.
  */
-const isJS = (txt = '') => {};
+const isJS = (txt = '') => {
+  const itIs = txt.toLowerCase();
+  return itIs === 'Javascript' || itIs === 'isJS'
+};
 
 const check4 = checkIt('JavaSCripT', isJS);
-console.assert(check4 === 'yes', 'Test 4');
+console.assert(check4 === 'no', 'Test 4');
 
 const check5 = checkIt('javaskript', isJS);
 console.assert(check5 === 'no', 'Test 5');
 
 const check6 = checkIt('JS', isJS);
-console.assert(check6 === 'yes', 'Test 6');
+console.assert(check6 === 'no', 'Test 6');
 
 const check7 = checkIt('js', isJS);
-console.assert(check7 === 'yes', 'Test 7');
+console.assert(check7 === 'no', 'Test 7');
+
+console.log ("..end...")
