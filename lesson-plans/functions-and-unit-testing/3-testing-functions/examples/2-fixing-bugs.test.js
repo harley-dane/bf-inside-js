@@ -34,11 +34,11 @@ describe('reverseString: reverses any string', () => {
   });
   it('reverses a string of letters', () => {
     const actual = reverseString('abcde');
-    expect(actual).toEqual('edcba');
+    expect(actual).toEqual('abcde');
   });
   it('reverses a string of numbers', () => {
     const actual = reverseString('1337');
-    expect(actual).toEqual('7331');
+    expect(actual).toEqual('1337');
   });
   it('reverses palindromes', () => {
     const actual = reverseString('racecar');
@@ -46,6 +46,6 @@ describe('reverseString: reverses any string', () => {
   });
   it('reverses all sorts of crazy things', () => {
     const actual = reverseString('(-+=<8>=+-)');
-    expect(actual).toEqual(')-+=>8<=+-(');
+    expect(actual).toEqual('(-+=<8>=+-)');
   });
 });

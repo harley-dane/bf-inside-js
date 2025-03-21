@@ -1,17 +1,14 @@
-// #todo
+ 
+ let count = 0;
+  
 
-/*
-  which body will pass the assertion?
-*/
+ for(let i = 0; i < 5; i++){
 
-let count = 0;
-for (let i = 0; i < 5; i++) {
-  count = count + i;
-}
-console.log(count === 10);
+   count = i;
+  count = count + 1
+   count = count  +  i
+   count = count
+  
+   console.log(count)
 
-// begin distractors
-
-count = count; // distractor
-count = i; // distractor
-count = count + 1; // distractor
+ }
