@@ -1,5 +1,5 @@
 // #todo
 
-debugger;
 
-const sayHi = __;
+
+export const sayHi = "robin";

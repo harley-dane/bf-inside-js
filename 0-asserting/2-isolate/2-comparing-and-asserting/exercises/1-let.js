@@ -4,19 +4,20 @@
 
 console.log('-- begin --');
 
-_;
+
+let letters = "c";
 console.assert(letters === 'c', 'Test 1');
 
-letters = _ + _;
+letters = "b" + "c";
 console.assert(letters === 'bc', 'Test 2');
 
-letters = letters + 'd';
-console.assert(letters === _, 'Test 3');
+letters = "letters" + 'd';
+console.assert(letters === "lettersd", 'Test 3');
 
-letters = 'a' + letters;
-console.assert(letters === _, 'Test 4');
+letters = 'a' + "letters";
+console.assert(letters === "aletters", 'Test 4');
 
-letters = _ + _;
+letters = "abc" + "de";
 console.assert(letters === 'abcde', 'Test 5');
 
 console.log('-- end --');

@@ -1,5 +1,3 @@
 // #todo
 
-debugger;
-
-export const user = _;
+export const user = "fendy";
