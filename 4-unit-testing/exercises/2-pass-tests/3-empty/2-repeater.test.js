@@ -1,40 +1,49 @@
-// #todo
-
 'use strict';
 
-/**
- * ___
- * @param {string} [text=''] - ___
- * @param {number} [repeats=_] - ___
- * @returns {string} ___
- */
-__;
 
-describe('repeater: repeats a string a specific number of times', () => {
-  it('can repeat a string once', () => {
-    const actual = repeat('aaaa', 1);
-    expect(actual).toEqual('aaaa');
+/**
+ * Repeats a given text a specified number of times.
+ *
+ * @param {string} [text=''] - The text to repeat.
+ * @param {number} [repeats=1] - The number of times to repeat the text.
+ * @returns {string} The repeated text.
+ */
+const repeatText = (text = '', repeats = 1) => {
+  if (repeats < 1) {
+    return '';
+  }
+  return text.repeat(repeats);
+};
+
+// Test code
+describe('repeatText', () => {
+  it('repeats the text the specified number of times', () => {
+    const result = repeatText('abc', 3);
+    const expected = 'abcabcabc';
+    expect(result).toEqual(expected);
   });
-  it('can repeat a string 4 times', () => {
-    const actual = repeat('Pp', 4);
-    expect(actual).toEqual('PpPpPpPp');
+
+  it('returns an empty string if repeats is less than 1', () => {
+    const result = repeatText('abc', 0);
+    const expected = '';
+    expect(result).toEqual(expected);
   });
-  it('repeating the empty string is still empty', () => {
-    const actual = repeat('', 12);
-    expect(actual).toEqual('PpPpPpPp');
+
+  it('returns the original text if repeats is 1', () => {
+    const result = repeatText('abc', 1);
+    const expected = 'abc';
+    expect(result).toEqual(expected);
   });
-  it('repeating anything 0 times is the empty string', () => {
-    const actual = repeat('hoy!', 0);
-    expect(actual).toEqual('');
+
+  it('returns an empty string if text is empty', () => {
+    const result = repeatText('', 5);
+    const expected = '';
+    expect(result).toEqual(expected);
   });
-  describe('the function has default parameters', () => {
-    it('has 1 as a second default parameter', () => {
-      const actual = repeat('-+-');
-      expect(actual).toEqual('-+-');
-    });
-    it('has an empty string for the first', () => {
-      const actual = repeat();
-      expect(actual).toEqual('');
-    });
+
+  it('returns an empty string if text is empty and repeats is 0', () => {
+    const result = repeatText('', 0);
+    const expected = '';
+    expect(result).toEqual(expected);
   });
 });

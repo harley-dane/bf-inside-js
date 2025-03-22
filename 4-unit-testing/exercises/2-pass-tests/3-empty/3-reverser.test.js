@@ -3,10 +3,16 @@
 'use strict';
 
 /**
+ * Reverses a given string.
  *
+ * @param {string} [text=''] - The string to reverse.
+ * @returns {string} The reversed string.
  */
-__;
+const reverser = (text = '') => {
+  return text.split('').reverse().join('');
+};
 
+// Test code
 describe('reverser: reverses a string', () => {
   it('reverses one letter', () => {
     const returned = reverser('a');

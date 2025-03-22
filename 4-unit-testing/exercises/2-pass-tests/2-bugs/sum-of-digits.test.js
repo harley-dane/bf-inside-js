@@ -1,25 +1,16 @@
-// #todo
-
 'use strict';
 
-/**
- * Add together all the digits in a number.
- * If the number is negative, the sum will be negative.
- *
- * @param {number} [toSum=0] - The number who's digits will be summed.
- * @returns {number} The sum of all digits in toSum.
- */
 const sumOfDigits = (toSum = 0) => {
-  const digitsToSum = String(toSum);
+  const digitsToSum = String(toSum).replaceAll('.', '').replaceAll('-', '');
   let sum = 0;
   for (const character of digitsToSum) {
     const digit = Number(character);
-    if (Number.isNaN(digit)) {
-      sum += sum + digit;
+    if (!Number.isNaN(digit)) {
+      sum += digit;
     }
   }
 
-  return toSum > 0 ? sum : sum;
+  return toSum < 0 ? -sum : sum;
 };
 
 describe('sumOfDigits: sums the digits in a number', () => {
